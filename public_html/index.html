@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="MiAplicacion">
+    <head>
+        <title>Web angular de DAW</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular.min.js"></script>
+        <script>
+            var MiModulo = angular.module('MiAplicacion', []);
+            MiModulo.controller('MiAplicacion01Controller', function ($scope) {
+                $scope.a = 0;
+                $scope.b = 0;
+                $scope.resultado = 0;
+                $scope.multiplicar = function () {
+                    $scope.resultado = $scope.a * $scope.b;
+                }
+                $scope.sumar = function () {
+                    $scope.resultado = $scope.a + $scope.b;
+                }
+            });
+        </script> 
+    </head>
+    <body ng-controller="MiAplicacion01Controller">
+        <h1>ngMouseover</h1>
+        Valor A: {{a}}
+        <button ng-mouseover="a = a + 1">Sumar A</button>
+        <button ng-mouseover="a = a - 1">Restar A</button>
+        <br />
+        Valor A: {{b}} 
+        <button ng-mouseover="b = b + 1">Sumar A</button>
+        <button ng-mouseover="b = b - 1">Restar B</button><br />
+
+
+        Click me: <input type="checkbox" ng-model="checked"><br/>
+
+        <button ng-show="checked" ng-click="multiplicar()">Multiplicar</button><br />
+        <button ng-hide="checked" ng-click="sumar()">Sumar</button><br />
+        
+        Resultado:<input type="number" ng-model="resultado"><br />  
+    </body>
+</html>
